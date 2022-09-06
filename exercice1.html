@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    #btn_span{
+        font-weight: bold;
+        color:red;
+    }
+</style>
+<body>
+    <div>
+    <h2>List App</h2>
+    <input id="input_add" placeholder="add someone to list">
+    <button>ajouter <span id="btn_span"></span> a la liste</button>
+
+    <div id="output">
+        <ul>
+        </ul>
+    </div>
+</div>
+<script>
+let input=document.querySelector("#input_add");input.value="";
+let btn=document.querySelector("button")
+let ul_output=document.querySelector("ul")
+let btn_span=document.querySelector("#btn_span")
+
+    btn.addEventListener("click",add);
+
+    input.addEventListener("keyup",()=>{
+        btn_span.innerHTML=input.value;
+    })
+    input.addEventListener("keydown",(e)=>{
+        if(e.key == "Enter"){
+            add();
+        }
+    })
+
+function add(){
+    li=document.createElement("li")
+    li.innerText=input.value
+    ul_output.appendChild(li);
+    li.innerHTML+="<hr>"
+
+    input.value="";
+    btn_span.innerHTML=""
+}
+
+</script>
+</body>
+</html>

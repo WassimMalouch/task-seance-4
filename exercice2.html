@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+</style>
+<body>
+    <h2>Interface Corona</h2>
+    <input >
+    <button>ajouter</button>
+
+
+
+
+
+
+    <div class="output">
+
+        <h3>Enregistrées</h3>
+        <ul id="Enregistrées"></ul>
+
+
+        <h3>Vaccinées</h3>
+        <ul id="Vaccinées"></ul>
+
+    </div>
+
+<script>
+let input=document.querySelector("input")
+let btnAdd=document.querySelector("button")
+let ulEnrg=document.querySelector("#Enregistrées")
+let ulVacc=document.querySelector("#Vaccinées")
+
+let  vaccine = (e)=>{
+    ulVacc.appendChild(e.target.parentNode)
+    e.target.innerText="supprier"
+    e.target.addEventListener("click",(e)=>{
+        e.target.parentNode.remove();
+    })
+}
+
+btnAdd.addEventListener("click",()=>{
+li=document.createElement("li")
+btnVacc=document.createElement("button")
+btnVacc.innerText="vacciner"
+btnVacc.setAttribute("id","btnVacc");
+btnVacc.addEventListener("click",vaccine);
+
+li.innerText="esm: "+input.value+" "
+li.appendChild(btnVacc)
+ulEnrg.appendChild(li)
+
+input.value="";
+});
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
